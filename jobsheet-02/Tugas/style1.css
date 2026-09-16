@@ -5,7 +5,7 @@ html, body {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #ddd;
+    background-color: lightcyan;
     line-height: 1.65;
     padding-bottom: 1000px;
 }
@@ -13,8 +13,45 @@ body {
 .container-satu {
     width: 800px;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: lavender;
     padding: 20px;
     box-sizing: border-box;
     display: flex;
+}
+
+.sidebar-satu {
+    flex: 1;
+    background-color: powderblue;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    align-self: flex-start;
+}
+
+.kolom-utama {
+    flex: 1.5;
+    padding: 0 5px;
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+.sidebar-dua {
+    flex: 1;
+    background-color: powderblue;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    align-self: flex-start;
+}
+
+h2, h3 {
+    margin-top: 0;
+    color: navy;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 15px auto 30px;
 }
