@@ -4,7 +4,7 @@ create table if not exists buku (
     pengarang varchar(255) not null,
     tahun integer not null,
     isbn varchar(50),
-    stok integer not null deafult 0,
+    stok integer not null default 0,
     kategori varchar(50)
 );
 

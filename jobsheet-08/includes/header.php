@@ -2,8 +2,8 @@
 session_start();
 
 $_jobsheetRoot = dirname(__DIR__);
-$scriptDir = dirname($_SERVER['SCRIPT_FILENAME']);
-$_rel = ltrim(str_replace('\\','/', substr($_scriptDir. strlen($_jobsheetRoot))), '/');
+$_scriptDir = dirname($_SERVER['SCRIPT_FILENAME']);
+$_rel = ltrim(str_replace('\\','/', substr($_scriptDir, strlen($_jobsheetRoot))), '/');
 $base = $_rel === '' ? '' : str_repeat('../', substr_count($_rel, '/') + 1);
 ?>
 
