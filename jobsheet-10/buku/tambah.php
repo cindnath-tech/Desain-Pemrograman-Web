@@ -42,6 +42,14 @@ unset($_SESSION['flash']);
                         </select>
                     </p>
                     <p>
+                        <label for="kondisi">Kondisi</label>
+                        <select name="kondisi" id="kondisi">
+                            <option value="bagus">Bagus</option>
+                            <option value="rusak ringan">Rusak Ringan</option>
+                            <option value="rusak berat">Rusak Berat</option>
+                        </select>
+                    </p>
+                    <p>
                         <button type="submit">Simpan</button>
                     </p>
                 </form>

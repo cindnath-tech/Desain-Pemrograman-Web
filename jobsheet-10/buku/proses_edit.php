@@ -3,12 +3,12 @@ require __DIR__ . '/../includes/auth.php';
 require __DIR__ . '/../includes/koneksi.php';
 
 $id = $_POST['id'] ?? null;
-$judul = trim($_POST['judul'] ?? null);
-$pengarang = trim($_POST['pengarang'] ?? null);
-$tahun = ($_POST['tahun'] ?? null);
-$isbn = trim($_POST['isbn'] ?? null);
-$stok = ($_POST['stok'] ?? null);
-$kategori = trim($_POST['kategori'] ?? null);
+$judul = trim($_POST['judul'] ?? '');
+$pengarang = trim($_POST['pengarang'] ?? '');
+$tahun = ($_POST['tahun'] ?? '');
+$isbn = trim($_POST['isbn'] ?? '');
+$stok = ($_POST['stok'] ?? '');
+$kategori = trim($_POST['kategori'] ?? '');
 
 if (!$id) {
     header('Location: list.php');
@@ -31,7 +31,7 @@ if (!is_numeric($stok) || $stok < 0) {
 
 if (!empty($erros)) {
     $_SESSION['flash'] = ['type' => 'error', 'pesan' => implode(' ', $erros)];
-    header('Location: edit.php?id' . urlencode($id));
+    header('Location: edit.php?id=' . urlencode($id));
     exit;
 }
 

@@ -26,9 +26,10 @@ if (!$buku) {
             <h2>Edit Buku</h2>
 
             <?php if ($flash): ?>
-                <p class="flash" flash-<?php echo $flash['type'];?>"><?php echo $flash['pesan']; ?></p>
+                <p class="flash flash-<?php echo $flash['type'];?>" ><?php echo $flash['pesan']; ?></p>
             <?php endif; ?>
                 <form id="form-tambah" method="post" action="proses_edit.php">
+                    <input type="hidden" name="id" value="<?php echo $buku['id']; ?>">
                     <p>
                         <label for="judul">Judul</label><br>
                         <input type="text" id="judul" name="judul" value="<?php echo $buku['judul']; ?>" required>

@@ -8,6 +8,7 @@ $tahun = ($_POST['tahun'] ?? '');
 $isbn = trim($_POST['isbn'] ?? '');
 $stok = ($_POST['stok'] ?? '');
 $kategori = trim($_POST['kategori'] ?? '');
+$kondisi = trim($_POST['kondisi'] ?? ''); 
 
 $errors = [];
 if ($judul === '') {
@@ -32,8 +33,8 @@ if (!empty($errors)) {
 }
 
 $stmt = $pdo->prepare(
-    "INSERT INTO buku (judul, pengarang, tahun, isbn, stok, kategori)
-    VALUES (:judul, :pengarang, :tahun, :isbn, :stok, :kategori)
+    "INSERT INTO buku (judul, pengarang, tahun, isbn, stok, kategori, kondisi)
+    VALUES (:judul, :pengarang, :tahun, :isbn, :stok, :kategori, :kondisi)
     RETURNING id"
 );
 
@@ -43,7 +44,8 @@ $stmt->execute([
     'tahun' => (int) $tahun,
     'isbn' => $isbn,
     'stok' => (int) $stok,
-    'kategori' => $kategori
+    'kategori' => $kategori,
+    'kondisi' => $kondisi
 ]);
 
 $_SESSION['flash'] = ['type' => 'success', 'pesan' => 'Buku berhasil ditambahkan.'];

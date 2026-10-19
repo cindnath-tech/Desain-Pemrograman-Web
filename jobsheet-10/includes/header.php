@@ -35,6 +35,7 @@ $base = $_rel === '' ? '' : str_repeat('../', substr_count($_rel, '/') + 1);
        </nav> 
        <div class="auth-status">
             <?php if ($sudahLogin): ?>
+                <img src="../img/profile.png" class="profile">
                 <span><?php echo $_SESSION['nama']; ?></span>
                 <a href="<?php echo $base; ?>auth/logout.php">Logout</a>
             <?php else: ?>

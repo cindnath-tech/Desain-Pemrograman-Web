@@ -10,17 +10,24 @@ $perPage = 5;
 $page = max(1, (int) ($_GET['page'] ?? 1));
 $offset = ($page - 1) * $perPage;
 $keyword = trim($_GET['q'] ?? '');
+$urut = $_GET['urut'] ?? 'az';
+
+if ($urut === 'za') {
+    $order = 'DESC';
+} else {
+    $order = 'ASC';
+}
 
 if ($keyword !== '') {
     $hitung = $pdo->prepare("SELECT COUNT(*) FROM buku WHERE judul ILIKE :kw");
     $hitung->execute(['kw' => '%' . $keyword . '%']);
     $totalRows = $hitung->fetchColumn();
 
-    $stmt = $pdo->prepare("SELECT * FROM buku WHERE judul ILIKE :kw ORDER BY id DESC LIMIT :limit OFFSET :offset");
+    $stmt = $pdo->prepare("SELECT * FROM buku WHERE judul ILIKE :kw ORDER BY judul $order LIMIT :limit OFFSET :offset");
     $stmt->bindValue('kw', '%' . $keyword . '%');
 } else {
     $totalRows = $pdo->query("SELECT COUNT(*) FROM buku")->fetchColumn();
-    $stmt = $pdo->prepare("SELECT * FROM buku ORDER BY id DESC LIMIT :limit OFFSET :offset");
+    $stmt = $pdo->prepare("SELECT * FROM buku ORDER BY judul $order LIMIT :limit OFFSET :offset");
 }
 $stmt->bindValue('limit', $perPage, PDO::PARAM_INT);
 $stmt->bindValue('offset', $offset, PDO::PARAM_INT);
@@ -51,6 +58,14 @@ $toalPage = max(1, (int) ceil($totalRows / $perPage));
                     <thead>
                         <tr>
                             <th>Judul</th>
+                            <form method="get" action="list.php">
+                                <select name="urut" id="sorting">
+                                    <option value="az" <?php echo $urut === 'az' ? 'selected' : ''; ?>>Sorting A-Z</option>
+                                    <option value="za" <?php echo $urut === 'za' ? 'selected' : ''; ?>>Sorting Z-A</option>
+                                </select>
+                                <input type="hidden" name="q" value="<?php echo htmlspecialchars($keyword); ?>">
+                                <button type="submit">Terapkan</button>
+                            </form>
                             <th>Pengarang</th>
                             <th>Tahun</th>
                             <th>Stok</th>
@@ -85,7 +100,7 @@ $toalPage = max(1, (int) ceil($totalRows / $perPage));
 
                 <nav class="pagination">
                     <?php for ($i = 1; $i <= $toalPage; $i++): ?>
-                    <a href="list.php?page=<?php echo $i; ?><?php echo $keyword !== '' ? '&q=' . urlencode($keyword) : ''; ?>"
+                    <a href="list.php?page=<?php echo $i; ?>&urut=<?php echo urlencode($urut); ?><?php echo $keyword !== '' ? '&q=' . urlencode($keyword) : ''; ?>"
                         class="<?php echo $i === $page ? 'active' : ''; ?>"><?php echo $i; ?></a>
                     <?php endfor; ?>
                 </nav>

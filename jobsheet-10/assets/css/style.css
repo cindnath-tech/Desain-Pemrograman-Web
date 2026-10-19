@@ -17,6 +17,7 @@ a {
 }
 
 a:hover {
+    color: lavenderblush;
     text-decoration: underline;
 }
 
@@ -55,6 +56,20 @@ header nav a {
 .auth-status a {
     color: #fff;
     text-decoration: underline;
+}
+
+.profile {
+    width: 40px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.sorting, button {
+    border-radius: 4px;
+    padding: 1.5px;
+    background-color: papayawhip;
+    cursor: pointer;
 }
 
 main {

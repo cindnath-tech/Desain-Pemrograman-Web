@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../includes/auth/php';
+require __DIR__ . '/../includes/auth.php';
 require __DIR__ . '/../includes/koneksi.php';
 
 $id = $_POST['id'] ?? null;
@@ -32,7 +32,7 @@ $stmt = $pdo->prepare(
     alamat = :alamat, no_hp = :no_hp WHERE id = :id"
 );
 $stmt->execute([
-    'judul' => $judul,
+    'nama' => $nama,
     'no_anggota' => $noAnggota,
     'alamat' => $alamat,
     'no_hp' => $noHp,

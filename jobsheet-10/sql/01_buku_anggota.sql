@@ -15,3 +15,6 @@ create table if not exists anggota (
     alamat varchar(255),
     no_hp varchar(30)
 );
+
+alter table buku
+add column kondisi varchar(25) default 'Baik';
