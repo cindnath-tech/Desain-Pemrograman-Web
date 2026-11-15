@@ -1,4 +1,3 @@
-/* ===== Reset & Base ===== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,7 +5,7 @@
 }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     color: #2b2b2b;
     background-color: #f5f6f8;
     line-height: 1.5;
@@ -18,12 +17,12 @@ a {
 }
 
 a:hover {
+    color: lavenderblush;
     text-decoration: underline;
 }
 
-/* ===== Header & Navbar (Flexbox) ===== */
 header {
-    background-color: #1d5b8a;
+    background-color: #adacfc;
     color: #fff;
     padding: 1rem 1.5rem;
     display: flex;
@@ -50,7 +49,7 @@ header nav a {
 .auth-status {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.7rem;
     color: #fff;
 }
 
@@ -59,7 +58,6 @@ header nav a {
     text-decoration: underline;
 }
 
-/* ===== Main Layout ===== */
 main {
     max-width: 1000px;
     margin: 2rem auto;
@@ -76,10 +74,9 @@ section {
 
 section h2 {
     margin-bottom: 1rem;
-    color: #1d5b8a;
+    color: #adacfc;
 }
 
-/* ===== Kartu Statistik (CSS Grid) ===== */
 main section:nth-of-type(2) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -102,10 +99,9 @@ main section:nth-of-type(2) article h3 {
 main section:nth-of-type(2) article p {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #1d5b8a;
+    color: #adacfc;
 }
 
-/* ===== Tabel ===== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -118,7 +114,7 @@ th, td {
 }
 
 thead {
-    background-color: #1d5b8a;
+    background-color: #adacfc;
     color: #fff;
 }
 
@@ -131,7 +127,7 @@ tbody tr:hover {
 }
 
 td button {
-    padding: 0.35rem 0.7rem;
+    padding: 0.35rem 0.75rem;
     margin-right: 0.35rem;
     border: none;
     border-radius: 4px;
@@ -139,7 +135,7 @@ td button {
     font-size: 0.85rem;
 }
 
-td button:first-of-type,
+td button:first-of-type, 
 td a.btn-edit {
     background-color: #f0ad4e;
     color: #fff;
@@ -162,7 +158,6 @@ td form.form-hapus {
     display: inline;
 }
 
-/* ===== Pagination ===== */
 .pagination {
     display: flex;
     gap: 0.5rem;
@@ -197,7 +192,6 @@ td form.form-hapus {
     cursor: pointer;
 }
 
-/* ===== Form ===== */
 form p {
     margin-bottom: 1rem;
 }
@@ -220,7 +214,7 @@ form select {
 }
 
 form button[type="submit"] {
-    background-color: #1d5b8a;
+    background-color: #adacfc;
     color: #fff;
     border: none;
     padding: 0.6rem 1.5rem;
@@ -229,11 +223,10 @@ form button[type="submit"] {
     cursor: pointer;
 }
 
-form button[type="submit"]:hover {
+form button[type="sumbit"]:hover {
     background-color: #164869;
 }
 
-/* ===== Footer ===== */
 footer {
     text-align: center;
     padding: 1.25rem;
@@ -241,12 +234,10 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ===== Tabel Responsif ===== */
 .table-responsive {
     overflow-x: auto;
 }
 
-/* ===== Hamburger Menu (JS-driven) ===== */
 .nav-toggle-label {
     display: none;
     font-size: 1.6rem;
@@ -256,7 +247,6 @@ footer {
     cursor: pointer;
 }
 
-/* ===== Flash Message ===== */
 .flash {
     padding: 0.75rem 1rem;
     border-radius: 6px;
@@ -274,7 +264,6 @@ footer {
     color: #721c24;
 }
 
-/* ===== Pesan Error Validasi ===== */
 .error {
     display: block;
     color: #d9534f;
@@ -282,7 +271,6 @@ footer {
     margin-top: 0.25rem;
 }
 
-/* ===== Kolom Pencarian ===== */
 .search-box {
     margin-bottom: 1rem;
 }
@@ -295,16 +283,12 @@ footer {
     border-radius: 4px;
 }
 
-/* ===== Responsive Breakpoints ===== */
-
-/* Tablet ke bawah */
 @media (max-width: 768px) {
     main section:nth-of-type(2) {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
     header {
         position: relative;
@@ -334,8 +318,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    form input,
-    form select {
+    form input, form select {
         max-width: 100%;
     }
 }
